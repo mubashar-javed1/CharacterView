@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mobi.characterview"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        simpsonsVersion {
+            applicationId 'com.sample.simpsonsviewer'
+            dimension 'version'
+            buildConfigField 'String', 'loadCharactersUrl', '"?q=simpsons+characters&format=json"'
+            resValue "string", "app_name", "Simpson Viewer"
+        }
+
+        wireVersion {
+            applicationId 'com.sample.wireviewer'
+            dimension 'version'
+            buildConfigField 'String', 'loadCharactersUrl', '"?q=the+wire+characters&format=json"'
+            resValue "string", "app_name", "Wire Viewer"
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* support library */
+    def supportVersion = "1.0.2"
+    implementation "androidx.appcompat:appcompat:$supportVersion"
+    implementation "com.google.android.material:material:1.0.0"
+
+    /*  RecyclerView and sectionRecyclerAdapter */
+    def recyclerVersion = "1.0.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerVersion"
+    implementation "androidx.cardview:cardview:$recyclerVersion"
+    implementation "androidx.legacy:legacy-support-v4:$recyclerVersion"
+
+
+    /*RxJava lib*/
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.6'
+
+    /* Android architecture components*/
+    def lifecycleVersion = "2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+
+    /* butterKnife */
+    def butterKnifeVersion = "10.1.0"
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+
+    /* dagger dependency for DI*/
+    def daggerVersion = "2.13"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    /*Retrofit for network calls and Gson for parsing */
+    def retrofitVersion = "2.3.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    /* Glide for Image loading*/
+    def glideVersion = "4.9.0"
+    implementation("com.github.bumptech.glide:glide:$glideVersion") {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    /* Espresso dependencies */
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
+    /* Unit Test*/
+    testImplementation 'junit:junit:4.12'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
