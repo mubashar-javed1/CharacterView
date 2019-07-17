@@ -9,3 +9,15 @@ v
 Fapp/src/main/java/com/mobi/characterview/adapter/CharacterAdapter.java,4\b\4b95cbc360c86daa92d54fcc2fd2942fbbeb94b8
 ˆ
 Xapp/src/main/java/com/mobi/characterview/ui/masterdetailactivity/ItemDetailFragment.java,e\a\ea499f22dac2cb80b4d3e7e9e7174cf0e2addcaa
+w
+Gapp/src/main/java/com/mobi/characterview/di/component/AppComponent.java,8\4\84df53c5dbafc6ab2123b0b084af31118c58f6e7
+q
+Aapp/src/main/java/com/mobi/characterview/di/module/AppModule.java,3\f\3f56163c98ffb6d0376fee188634625e0bfcd55a
+Š
+Zapp/src/main/java/com/mobi/characterview/ui/masterdetailactivity/MasterDetailActivity.java,d\1\d1663a22ecac55bc98289e4347a56dfb89c7f7df
+m
+=app/src/main/java/com/mobi/characterview/ui/BaseActivity.java,4\d\4d6fc69a9ffa9af686855b6912cfe811492d017d
+v
+Fapp/src/main/java/com/mobi/characterview/di/module/RetrofitModule.java,b\0\b056fdc99fbd3a1fe1126d052f1c34bcb8440131
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
